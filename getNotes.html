@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Document</title>
+
+</head>
+
+<body>
+
+<div id="parent">
+
+<h1 id="tittle"></h1>
+
+<p id="category"></p>
+
+<p id="body"></p>
+
+<p id="author"></p>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+const onGet=()=>{
+
+fetch("http://localhost:8080/notes/",{
+
+method:"GET",
+
+headers:{
+
+"Content-type":"application/json",
+
+"Authorization":"Bearear "+localStorage.getItem("token")//here we are passing token for Authorization in Header
+
+},
+
+}).then(res=>res.json())
+
+.then(res=>{
+
+console.log(res)
+
+//have to append the resdata on ui
+
+
+
+})
+
+.catch(err=>console.log(err))
+
+}
+
+onGet(); //invoking the function
+</script>
